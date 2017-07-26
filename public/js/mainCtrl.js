@@ -46,6 +46,29 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       $scope.getZip()
     })
   }
+<<<<<<< HEAD
+  // $scope.getCoOrd()
+    // only call when needed
+    $scope.getZip = function() {
+      var lat = $scope.lat
+      var lng = $scope.lng
+      service.getZip(lat, lng).then(function(result) {
+        console.log("zip",result.data.results[0].address_components[7])
+        var loc = result.data.results[0].address_components[7].short_name
+        $scope.location = loc
+            $scope.getLocal()
+      })
+    }
+
+    $scope.getLocal = function() {
+      var zip = $scope.location
+      console.log('zipcode', zip)
+      service.getLocal(zip).then(function(local){
+        console.log('byZIP', local.data.Events)
+        $scope.local = local.data.Events
+      })
+    }
+=======
   $scope.getCoOrd()
     // only call when needed
     $scope.getZip = function() {
@@ -133,6 +156,7 @@ $scope.getfaveBands($scope.user)
     $scope.venuematches = false
     $scope.pageSize = 5;
     $scope.currentPage = 1;
+>>>>>>> master
 })
 
 // <<=========================================POPUPS================================>>
