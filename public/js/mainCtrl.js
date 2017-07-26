@@ -53,7 +53,7 @@ angular.module('myApp').controller('mainCtrl', function ($scope, service, auth0S
       var lng = $scope.lng
       service.getZip(lat, lng).then(function(result) {
         console.log("zip",result.data.results[0].address_components[7])
-        var loc = result.data.results[0].address_components[6].short_name
+        var loc = result.data.results[0].address_components[7].short_name
         $scope.location = loc
       })
     }
@@ -88,23 +88,23 @@ $scope.getfaveBands = function(user) {
     }
   })
 }
-$scope.getfaveBands($scope.user)
 
-// $scope.getfaveVenues = function(user) {
-//   faveService.getfaveVenues(user).then(function(faves){
-//     if (faves) { $scope.favevenues = faves;
-//     } else {
-//       $scope.favevenues = 'LOG IN!';
-//     }
-//   })
-// }
-// $scope.getfaveVenues()
-//
-// $scope.addFaveBands = function(user) {
-//   faveService.addFaveBands(user).then(function(faves){
-//     $scope.faveBands = faves
-//   })
-// }
+  user = $scope.user
+$scope.getfaveVenues = function(user) {
+  faveService.getfaveVenues(user).then(function(faves){
+    if (faves) { $scope.favevenues = faves;
+    } else {
+      $scope.favevenues = 'LOG IN!';
+    }
+  })
+}
+
+
+$scope.addFaveBands = function(user) {
+  faveService.addFaveBands(user).then(function(faves){
+    $scope.faveBands = faves
+  })
+}
 //
 // $scope.addFaveVenues = function(user) {
 //   faveService.addFaveVenues(user).then(function(faves){
