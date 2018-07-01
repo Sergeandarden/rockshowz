@@ -8,6 +8,7 @@ angular.module('myApp').service('service', function($http) {
       controller: 'mainCtrl'
     })
   }
+
   this.getBandData = function(data) {
     console.log('banddata', data )
     return $http({
@@ -16,6 +17,7 @@ angular.module('myApp').service('service', function($http) {
       controller: 'mainCtrl'
     })
   },
+  
   this.getVenueId = function(venue) {
     console.log('venuename', venue)
     return $http({

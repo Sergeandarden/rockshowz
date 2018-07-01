@@ -20,9 +20,9 @@ const express = require('express'),
     app.use(bodyParser.json())
     app.use(cors())
     app.use(session({
-      resave: true, //Without this you get a constant warning about default values
-      saveUninitialized: true, //Without this you get a constant warning about default values
-      secret: 'pizzaisgood'
+      resave: config.resave, //Without this you get a constant warning about default values
+      saveUninitialized: config.sU, //Without this you get a constant warning about default values
+      secret: config.secret
     }))
     app.use(passport.initialize());
     app.use(passport.session());
@@ -123,8 +123,6 @@ const express = require('express'),
         res.status(200).send(req.user);
       })
 
-
-
       app.get('/auth/logout', function(req, res) {
         req.logout();
         res.redirect('/');
@@ -153,7 +151,7 @@ const express = require('express'),
 // <<==================END OF FAVORITES==========================>>
 
 
-          var port = 8081
+          var port = 8084
       app.listen(port, function() {
         console.log("listening on port " + port)
       })
