@@ -1,4 +1,5 @@
-angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('myApp', ['ui.router','ui.bootstrap']).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
           $stateProvider
           .state('home', {
