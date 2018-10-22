@@ -12,6 +12,9 @@ This app allows you to look up concerts, either by you favorite band or venue. Y
 * Auth0
 * Express
 
+#
+* search by location is currently down
+
 
 
 
